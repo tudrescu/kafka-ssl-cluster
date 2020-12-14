@@ -42,6 +42,11 @@ keytool -keystore ${CERTS}/kafka.server.truststore.jks \
   -storepass $B_PW \
   -noprompt
 
+keytool -keystore ${CERTS}/kafka.server.truststore.jks \
+  -alias intermediate \
+  -import -file ${CERTS}/intermediate.crt \
+  -storepass $B_PW \
+  -noprompt
 
 # Place keys into files, because of a security layer added to the confluent docker images.
 if [ ! -f ${CERTS}/.key ]; then

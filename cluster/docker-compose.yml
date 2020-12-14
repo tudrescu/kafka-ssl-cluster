@@ -237,6 +237,7 @@ services:
     environment:
       ZK_HOSTS: "zookeeper:2181"
       APPLICATION_SECRET: "3833be9353ae4ca788d66414f58a1ac4" # used internally for signing session cookies, CSRF tokens and built in encryption utilities
+      JAVA_OPTS: "-Djavax.net.ssl.trustStore=/certs/kafka.server.truststore.jks -Djavax.net.ssl.trustStorePassword=dev_cluster_secret"
     depends_on:
       - zookeeper
       - broker-1
@@ -245,7 +246,7 @@ services:
       - broker-4
     volumes:
       - ./assets/cmak/kafka-manager-config.sh:/kafka-manager-config.sh
-      - ./assets/cmak/consumer.properties:/kafka-manager/conf/consumer-properties
+      - ./assets/cmak/consumer.properties:/kafka-manager/conf/consumer.properties
       - ./certs:/certs
     entrypoint:
       - /bin/bash
@@ -254,6 +255,8 @@ services:
         echo "# Bootstraping CMAK"
         # remove advanced features
         sed -i 's#,"KMPreferredReplicaElectionFeature","KMReassignPartitionsFeature", "KMScheduleLeaderElectionFeature"##g' /kafka-manager/conf/application.conf
+        # configure SSL for CMAK' admin client
+        sed -ir "s/^[#]*\s*kafka-manager.consumer.properties.file=.*/kafka-manager.consumer.properties.file=\/kafka-manager\/conf\/consumer.properties/" /kafka-manager/conf/application.conf
         # start CMAK
         /kafka-manager/bin/cmak -Dpidfile.path=/dev/null -Dapplication.home=/kafka-manager &
         # configure CMAK
