@@ -61,6 +61,13 @@ services:
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_OPTS: >
+        -Dcom.sun.management.jmxremote 
+        -Dcom.sun.management.jmxremote.authenticate=false 
+        -Dcom.sun.management.jmxremote.ssl=false 
+        -Djava.rmi.server.hostname=broker-1 
+        -Dcom.sun.management.jmxremote.rmi.port=9101
 
   broker-2:
     image: confluentinc/cp-kafka:${CP_TAG}
@@ -101,6 +108,13 @@ services:
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_OPTS: >
+        -Dcom.sun.management.jmxremote 
+        -Dcom.sun.management.jmxremote.authenticate=false 
+        -Dcom.sun.management.jmxremote.ssl=false 
+        -Djava.rmi.server.hostname=broker-2 
+        -Dcom.sun.management.jmxremote.rmi.port=9101
 
   broker-3:
     image: confluentinc/cp-kafka:${CP_TAG}
@@ -141,6 +155,13 @@ services:
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_OPTS: >
+        -Dcom.sun.management.jmxremote 
+        -Dcom.sun.management.jmxremote.authenticate=false 
+        -Dcom.sun.management.jmxremote.ssl=false 
+        -Djava.rmi.server.hostname=broker-3
+        -Dcom.sun.management.jmxremote.rmi.port=9101
 
   broker-4:
     image: confluentinc/cp-kafka:${CP_TAG}
@@ -181,6 +202,13 @@ services:
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
       KAFKA_LOG4J_ROOT_LOGLEVEL: INFO
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_OPTS: >
+        -Dcom.sun.management.jmxremote 
+        -Dcom.sun.management.jmxremote.authenticate=false 
+        -Dcom.sun.management.jmxremote.ssl=false 
+        -Djava.rmi.server.hostname=broker-4
+        -Dcom.sun.management.jmxremote.rmi.port=9101
 
   jumphost:
     image: confluentinc/cp-kafka:${CP_TAG}
