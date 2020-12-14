@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TOPIC_NAME="${1:-topic1}"
+
+kafkacat -P -t "${TOPIC_NAME}" -K: -l /data.txt

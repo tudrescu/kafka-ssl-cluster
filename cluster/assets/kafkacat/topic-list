@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kafkacat -L -J | jq -r '.topics[].topic' | sort
