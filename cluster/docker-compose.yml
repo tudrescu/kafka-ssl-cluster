@@ -54,6 +54,9 @@ services:
       KAFKA_SSL_CLIENT_AUTH: required
       KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka.key
       KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.server.truststore.jks
+      # KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      # KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      # KAFKA_SUPER_USERS: User:CN=root;User:CN=broker-1;User:CN=broker-2;User:CN=broker-3;User:CN=broker-4
       KAFKA_OPTS: -javaagent:/opt/jmx_prometheus/jmx_prometheus_javaagent.jar=7071:/opt/jmx_prometheus/kafka-config.yml -javaagent:/opt/jmx_prometheus/jolokia-agent.jar=port=7072,host=*
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
@@ -91,6 +94,9 @@ services:
       KAFKA_SSL_CLIENT_AUTH: required
       KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka.key
       KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.server.truststore.jks
+      # KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      # KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      # KAFKA_SUPER_USERS: User:CN=root;User:CN=broker-1;User:CN=broker-2;User:CN=broker-3;User:CN=broker-4
       KAFKA_OPTS: -javaagent:/opt/jmx_prometheus/jmx_prometheus_javaagent.jar=7071:/opt/jmx_prometheus/kafka-config.yml -javaagent:/opt/jmx_prometheus/jolokia-agent.jar=port=7072,host=*
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
@@ -128,6 +134,9 @@ services:
       KAFKA_SSL_CLIENT_AUTH: required
       KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka.key
       KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.server.truststore.jks
+      # KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      # KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      # KAFKA_SUPER_USERS: User:CN=root;User:CN=broker-1;User:CN=broker-2;User:CN=broker-3;User:CN=broker-4
       KAFKA_OPTS: -javaagent:/opt/jmx_prometheus/jmx_prometheus_javaagent.jar=7071:/opt/jmx_prometheus/kafka-config.yml -javaagent:/opt/jmx_prometheus/jolokia-agent.jar=port=7072,host=*
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
@@ -165,6 +174,9 @@ services:
       KAFKA_SSL_CLIENT_AUTH: required
       KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka.key
       KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.server.truststore.jks
+      # KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      # KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "false"
+      # KAFKA_SUPER_USERS: User:CN=root;User:CN=broker-1;User:CN=broker-2;User:CN=broker-3;User:CN=broker-4
       KAFKA_OPTS: -javaagent:/opt/jmx_prometheus/jmx_prometheus_javaagent.jar=7071:/opt/jmx_prometheus/kafka-config.yml -javaagent:/opt/jmx_prometheus/jolokia-agent.jar=port=7072,host=*
       KAFKA_METRIC_REPORTERS:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: 'false'
