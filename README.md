@@ -54,7 +54,7 @@ Brokers are configured with two listeners (INTERNAL/EXTERNAL), both using SSL an
 - to activate the monitoring stack, change to the [monitoring](monitoring) directory and start the monitoring stack (optional).
 
   ```bash
-  cd cluster
+  cd monitoring
   docker-compose up -d
   ```
 
@@ -73,4 +73,4 @@ Brokers are configured with two listeners (INTERNAL/EXTERNAL), both using SSL an
    docker-compose down -v
    ```
 
-  in the [cluster](cluster) and [monitoring](monitoring) directories.
+  in the [cluster](cluster) and [monitoring](monitoring) directories, respectively.
