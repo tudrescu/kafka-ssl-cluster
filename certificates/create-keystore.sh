@@ -48,7 +48,7 @@ keytool -keystore ${CERTS}/kafka.server.truststore.jks \
   -storepass $B_PW \
   -noprompt
 
-# Place keys into files, because of a security layer added to the confluent docker images.
+# save keys into file
 if [ ! -f ${CERTS}/.key ]; then
   echo ${B_PW} > ${CERTS}/kafka.key
 fi

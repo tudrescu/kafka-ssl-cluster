@@ -14,8 +14,6 @@ cd ${BASE}
 HOSTNAME=$1
 shift
 
-# TODO verify intermediate.crt, intermediate.key, ca.crt exists
-
 CA_PW=${CA_PASSWORD}
 IN_PW=${INTERMEDIATE_PASSWORD}
 B_PW=${BROKER_PASSWORD}
@@ -83,11 +81,9 @@ openssl req \
 
 printf "\n\nsign csr\n========\n\n"
 
-  #
-  # sign the certificate request and extensions file
-  #   openssl.cnf must have 'copy_extensions = copy'
-  #   issues running on MacOS to get extensions into x509 from csr
-  #
+#
+# sign the certificate request and extensions file
+#
 openssl x509 \
 	-req \
 	-CA ${CERTS}/intermediate.crt \
@@ -101,8 +97,10 @@ openssl x509 \
 	-extensions v3_ca 
 [ $? -eq 1 ] && echo "ERROR: unable to sign the csr for ${i}." && exit
 
+# create Certificate chain
 cat ${CERTS}/intermediate.crt ${CERTS}/ca.crt > ${CERTS}/chain.pem
 
+# verify Certificate chain
 openssl verify -CAfile ${CERTS}/chain.pem ${CERTS}/${crt}
 [ $? -eq 1 ] && echo "ERROR: unable to verify certificate for ${i}." && exit
 

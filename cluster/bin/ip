@@ -1,5 +1,7 @@
 #!/bin/sh
 
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $*
+# wrapper to get container IPs
+
+docker inspect -f '{{ range .NetworkSettings.Networks }}{{ .IPAddress }} {{ end }}' $*
 
 

@@ -21,4 +21,4 @@
 
 4. `create_keystore.sh`: bundles the certificates into Java keystore files.  Keystore password and key passwords **must** match, which is a limitation of the JKS format of certificates stored in keystore.
 
-The scripts are designed so that the process can be restarted at any level. If a CA and Intermediate certificates are already generated, only the last steps must be run to generate the server/client certificates and JKS.
+The process can be restarted at any level.

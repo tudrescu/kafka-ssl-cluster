@@ -33,6 +33,7 @@ services:
         ipv4_address: 10.5.0.101
     ports:
       - "17072:7072"
+      - "19093:9093"
     volumes:
       - ./jmx_prometheus:/opt/jmx_prometheus
       - ./certs:/etc/kafka/secrets/
@@ -80,6 +81,7 @@ services:
         ipv4_address: 10.5.0.102
     ports:
       - "27072:7072"
+      - "29093:9093"
     volumes:
       - ./jmx_prometheus:/opt/jmx_prometheus
       - ./certs:/etc/kafka/secrets/
@@ -127,6 +129,7 @@ services:
         ipv4_address: 10.5.0.103
     ports:
       - "37072:7072"
+      - "39093:9093"
     volumes:
       - ./jmx_prometheus:/opt/jmx_prometheus
       - ./certs:/etc/kafka/secrets/
@@ -174,6 +177,7 @@ services:
         ipv4_address: 10.5.0.104
     ports:
       - "47072:7072"
+      - "49093:9093"
     volumes:
       - ./jmx_prometheus:/opt/jmx_prometheus
       - ./certs:/etc/kafka/secrets/
@@ -221,6 +225,7 @@ services:
 
   kafkacat:
       image: edenhill/kafkacat:${KAFKACAT_VERSION}
+      hostname: kafkacat
       container_name: kafkacat
       volumes:
         - ./assets/kafkacat/kafkacat-template.conf:/home/.config/kafkacat.conf
@@ -244,6 +249,7 @@ services:
   akhq:
     image: tchiotludo/akhq:${AKHQ_VERSION}
     container_name: akhq
+    hostname: akhq
     volumes:
       - ./certs:/certs
     environment:
@@ -260,7 +266,7 @@ services:
                 ssl.keystore.password: dev_cluster_secret
                 ssl.key.password: dev_cluster_secret
     ports:
-      - "8080:8080"
+      - "9080:8080"
     depends_on:
       - broker-1
       - broker-2
@@ -270,7 +276,6 @@ services:
   kafka-manager:
     image: hlebalbau/kafka-manager:${KAFKA_MANAGER_VERSION}
     hostname: kafka-manager
-    hostname: jumphost
     container_name: kafka-manager
     ports:
       - "9000:9000"

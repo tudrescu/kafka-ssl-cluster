@@ -10,7 +10,6 @@ cd ${BASE}
 [ $? -eq 1 ] && echo "ERROR: unable to create intermediate certificate" && exit
 
 ./create-certs.sh
-# having issues / false positives [ $? -eq 1 ] && echo "unable to create host certificates" && exit
 
 ./create-keystore.sh
 [ $? -eq 1 ] && echo "ERROR: unable to create keystores" && exit

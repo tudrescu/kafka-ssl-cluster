@@ -1,10 +1,14 @@
 #!/bin/sh
 
+if [ $# -lt 1 ]; then
+  echo "usage: $0 topic"
+  exit -1
+fi
+
 kafka-console-producer \
- --broker-list broker-1:9093,broker-2:9093,broker-3:9093,broker-4:9093 \
+ --bootstrap-server broker-1:9093,broker-2:9093,broker-3:9093,broker-4:9093 \
  --producer.config ./config/producer-config.conf \
  --producer-property acks=all \
- --producer-property bootstrap.servers=${BOOTSTRAP_SERVERS} \
  --topic $1
  
 

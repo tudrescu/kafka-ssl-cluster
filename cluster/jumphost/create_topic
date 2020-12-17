@@ -1,7 +1,12 @@
 #!/bin/bash
 
+if [ $# -lt 1 ]; then
+  echo "usage: $0 topic"
+  exit -1
+fi
+
 kafka-topics \
-  --bootstrap-server broker-1:9093,broker-2:9093,broker-3:9093 \
+  --bootstrap-server broker-1:9093,broker-2:9093,broker-3:9093,broker-4:9093 \
   --command-config ./config/adminclient-config.conf \
   --replication-factor 3 \
   --partitions 10 \
